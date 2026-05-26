@@ -256,14 +256,16 @@ export default function App() {
             Available for opportunities
           </div>
           <h1 className="hero-title">
-            Backend Engineer
-            <br />
-            <em>building reliable systems</em>
-          </h1>
-          <p className="hero-sub">
-            I design and build distributed systems, APIs, and data pipelines that scale.
-            Obsessed with correctness, observability, and clean interfaces between services.
-          </p>
+  Java Backend Developer
+  <br />
+  <em>Spring Boot • MongoDB • REST APIs</em>
+</h1>
+
+<p className="hero-sub">
+  I build scalable backend applications, REST APIs,
+  authentication systems, and full stack platforms using
+  Java, Spring Boot, MongoDB, React, and modern backend technologies.
+</p>
           
           <div className="hero-actions">
             <a href="#projects" className="btn-primary">
