@@ -1,52 +1,29 @@
 import { useState, useEffect } from "react";
-import { GitBranch, ExternalLink, Terminal, Database, Server, ArrowUpRight, Menu, X } from "lucide-react";
+import {
+  GitBranch,
+  ExternalLink,
+  Terminal,
+  Database,
+  Server,
+  ArrowUpRight,
+  Menu,
+  X,
+} from "lucide-react";
+
 import "./index.css";
 import "./App.css";
 
-const NAV_LINKS = ["Projects", "Contact"];
+const NAV_LINKS = ["Projects", "Coding", "Contact"];
 
 const PROJECTS = [
   {
-  title: "Thapar On Wheels",
-  tag: "Campus Transport",
-  tagColor: "green",
-  description:
-    "A smart campus ride-sharing and transport coordination platform for Thapar students featuring ride listings, live seat availability, trip scheduling, route coordination, and secure student-based access for easier intercity travel.",
-  stack: [
-    "Spring Boot",
-    "React",
-    "MongoDB",
-    "JWT",
-    "Tailwind CSS",
-  ],
-  github: "https://github.com/hnpsbindra-singh/ThaparOnWheelz",
-  metric: "Campus",
-  metricLabel: "ride network",
-},
-  {
-    title: "FestTrack",
-    tag: "Campus Events",
-    tagColor: "warm",
+    title: "Thapar On Wheels",
+    tag: "Campus Transport",
+    tagColor: "green",
+
     description:
-      "An event management and tracking platform for colleges that handles registrations, schedules, announcements, participation tracking, and real-time event coordination through a centralized dashboard.",
-    stack: [
-      "Spring Boot",
-      "React",
-      "MongoDB",
-      "Tailwind",
-      "REST API",
-    ],
-    github: "https://github.com/hnpsbindra-singh/FestTrek",
-  
-    metric: "Live",
-    metricLabel: "event tracking",
-  },
-  {
-    title: "CommUnity",
-    tag: "Social Platform",
-    tagColor: "default",
-    description:
-      "A full-stack community discussion platform featuring authentication, post creation, threaded comments, likes, JWT-based sessions, and responsive UI with instant interaction updates.",
+      "Campus ride-sharing platform for Thapar students featuring trip scheduling, route coordination, live seat availability, and secure student authentication.",
+
     stack: [
       "Spring Boot",
       "React",
@@ -54,60 +31,123 @@ const PROJECTS = [
       "JWT",
       "Tailwind CSS",
     ],
-    github: "https://github.com/hnpsbindra-singh/CommUnity",
-    
-    metric: "JWT",
-    metricLabel: "secure auth",
+
+    github: "https://github.com/hnpsbindra-singh/ThaparOnWheelz",
+
+    metric: "Real-time",
+    metricLabel: "ride coordination",
   },
- {
+
+  {
+    title: "FestTrack",
+    tag: "Campus Events",
+    tagColor: "warm",
+
+    description:
+      "College event management platform handling registrations, schedules, announcements, participation tracking, and centralized event coordination.",
+
+    stack: [
+      "Spring Boot",
+      "React",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST APIs",
+    ],
+
+    github: "https://github.com/hnpsbindra-singh/FestTrek",
+
+    metric: "Live",
+    metricLabel: "event tracking",
+  },
+
+  {
+    title: "CommUnity",
+    tag: "Social Platform",
+    tagColor: "default",
+
+    description:
+      "Full-stack community discussion platform with authentication, threaded comments, likes, JWT sessions, and responsive real-time interactions.",
+
+    stack: [
+      "Spring Boot",
+      "React",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS",
+    ],
+
+    github: "https://github.com/hnpsbindra-singh/CommUnity",
+
+    metric: "JWT",
+    metricLabel: "authentication",
+  },
+
+  {
     title: "Auth Service",
     tag: "Security",
     tagColor: "warm",
+
     description:
-      "A reusable authentication microservice implementing JWT authentication, refresh token flow, role-based access control, secure password hashing, and API-level authorization.",
+      "Reusable authentication microservice implementing JWT authentication, refresh tokens, RBAC authorization, secure password hashing, and API-level security.",
+
     stack: [
       "Spring Boot",
       "Spring Security",
       "JWT",
-      "MongoDB"
-      
+      "MongoDB",
     ],
+
     github: "https://github.com/hnpsbindra-singh/AuthApp",
-    
+
     metric: "RBAC",
     metricLabel: "authorization",
   },
+
   {
-  title: "MYFitness",
-  tag: "Fitness Platform",
-  tagColor: "warm",
-  description:
-    "A fitness tracking and workout management platform that helps users monitor progress, manage workout routines, track calories and macros, and stay consistent through personalized fitness insights and daily activity logging.",
-  stack: [
-    "Spring Boot",
-    "React",
-    "MySQL",
-    "JWT"
-    
-  ],
-  github: "https://github.com/hnpsbindra-singh/MyFitnessArena",
-  
-  metric: "Daily",
-  metricLabel: "progress tracking",
-},
-  
+    title: "MYFitness",
+    tag: "Fitness Platform",
+    tagColor: "warm",
+
+    description:
+      "Fitness tracking platform for workout management, calorie tracking, macro monitoring, and daily progress analytics with secure user authentication.",
+
+    stack: [
+      "Spring Boot",
+      "React",
+      "MySQL",
+      "JWT",
+    ],
+
+    github: "https://github.com/hnpsbindra-singh/MyFitnessArena",
+
+    metric: "Daily",
+    metricLabel: "progress analytics",
+  },
 ];
 
 const TAG_COLORS = {
-  green: { bg: "#e8f5ee", color: "#2d6a4f", border: "#b7ddc8" },
-  warm: { bg: "#fdf0e3", color: "#c47c3e", border: "#f0d0a8" },
-  default: { bg: "#eeecea", color: "#4a4845", border: "#d0cdc8" },
-};
+  green: {
+    bg: "#e8f5ee",
+    color: "#2d6a4f",
+    border: "#b7ddc8",
+  },
 
-const STACK_ICONS = { default: Terminal, database: Database };
+  warm: {
+    bg: "#fdf0e3",
+    color: "#c47c3e",
+    border: "#f0d0a8",
+  },
+
+  default: {
+    bg: "#eeecea",
+    color: "#4a4845",
+    border: "#d0cdc8",
+  },
+};
 
 function Tag({ label, color = "default" }) {
   const s = TAG_COLORS[color] || TAG_COLORS.default;
+
   return (
     <span
       style={{
@@ -149,11 +189,23 @@ function StackPill({ name }) {
 
 function ProjectCard({ project, index }) {
   return (
-    <div className="project-card" style={{ animationDelay: `${index * 0.07}s` }}>
+    <div
+      className="project-card"
+      style={{ animationDelay: `${index * 0.07}s` }}
+    >
       <div className="project-card-inner">
+
         <div className="project-header">
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              flexWrap: "wrap",
+            }}
+          >
             <Tag label={project.tag} color={project.tagColor} />
+
             <span
               style={{
                 fontFamily: "var(--font-mono)",
@@ -166,27 +218,41 @@ function ProjectCard({ project, index }) {
               }}
             >
               {project.metric}{" "}
-              <span style={{ opacity: 0.6 }}>{project.metricLabel}</span>
+              <span style={{ opacity: 0.6 }}>
+                {project.metricLabel}
+              </span>
             </span>
           </div>
+
           <div style={{ display: "flex", gap: "8px" }}>
             {project.github && (
-              <a href={project.github} className="icon-btn" aria-label="GitHub">
+              <a
+                href={project.github}
+                className="icon-btn"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
                 <GitBranch size={15} />
-              </a>
-            )}
-            {project.live && (
-              <a href={project.live} className="icon-btn" aria-label="Live">
-                <ExternalLink size={15} />
               </a>
             )}
           </div>
         </div>
 
         <h3 className="project-title">{project.title}</h3>
-        <p className="project-desc">{project.description}</p>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
+        <p className="project-desc">
+          {project.description}
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "6px",
+            marginTop: "16px",
+          }}
+        >
           {project.stack.map((s) => (
             <StackPill key={s} name={s} />
           ))}
@@ -201,34 +267,53 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
     <div className="app">
-      {/* NAV */}
+
+      {/* NAVBAR */}
       <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
         <div className="nav-inner">
+
           <a href="#" className="nav-logo">
             <Terminal size={16} />
             <span>Harnimarpreet Singh</span>
           </a>
+
           <div className="nav-links">
             {NAV_LINKS.map((l) => (
-              <a key={l} href={`#${l.toLowerCase()}`} className="nav-link">
+              <a
+                key={l}
+                href={`#${l.toLowerCase()}`}
+                className="nav-link"
+              >
                 {l}
               </a>
             ))}
+
             <a href="#contact" className="nav-cta">
               Hire Me
             </a>
           </div>
-          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+
         {menuOpen && (
           <div className="mobile-menu">
             {NAV_LINKS.map((l) => (
@@ -241,7 +326,12 @@ export default function App() {
                 {l}
               </a>
             ))}
-            <a href="#contact" className="mobile-link mobile-cta" onClick={() => setMenuOpen(false)}>
+
+            <a
+              href="#contact"
+              className="mobile-link mobile-cta"
+              onClick={() => setMenuOpen(false)}
+            >
               Hire Me
             </a>
           </div>
@@ -251,48 +341,60 @@ export default function App() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
+
           <div className="hero-badge">
             <span className="status-dot" />
-            Available for opportunities
+            Open to backend engineering opportunities
           </div>
-          <h1 className="hero-title">
-  Java Backend Developer
-  <br />
-  <em>Spring Boot • MongoDB • REST APIs</em>
-</h1>
 
-<p className="hero-sub">
-  I build scalable backend applications, REST APIs,
-  authentication systems, and full stack platforms using
-  Java, Spring Boot, MongoDB, React, and modern backend technologies.
-</p>
-          
+          <h1 className="hero-title">
+            Building scalable backend systems
+            <br />
+            <em>with Java, Spring Boot & Modern APIs</em>
+          </h1>
+
+          <p className="hero-sub">
+            Backend-focused developer passionate about building secure,
+            scalable, and production-ready applications using Java,
+            Spring Boot, MongoDB, React, and modern backend technologies.
+            I enjoy designing APIs, authentication systems, real-time features,
+            and solving engineering problems through clean architecture.
+          </p>
+
           <div className="hero-actions">
             <a href="#projects" className="btn-primary">
               View Projects <ArrowUpRight size={16} />
             </a>
+
             <a href="#contact" className="btn-secondary">
               Get in Touch
             </a>
           </div>
         </div>
+
         <div className="hero-graphic">
           <div className="terminal-window">
+
             <div className="terminal-bar">
               <span />
               <span />
               <span />
             </div>
-            <pre className="terminal-code">{`$ whoami
-backend-engineer
 
-$ cat Java · PostgreSQL · MySQL · Spring Boot
-React · Docker · MongoDb
+            <pre className="terminal-code">{`$ role
+Backend Engineer
 
-$ uptime
-Fresher, still learning
+$ current_focus
+Scalable backend systems
 
+$ stack
+Java · Spring Boot · MongoDB
+React · REST APIs · JWT
+
+$ status
+Building & shipping projects daily
 `}</pre>
+
           </div>
         </div>
       </section>
@@ -300,46 +402,142 @@ Fresher, still learning
       {/* PROJECTS */}
       <section id="projects" className="section">
         <div className="section-inner">
+
           <div className="section-header">
             <div>
               <p className="section-label">
                 <Database size={13} /> Selected Work
               </p>
-              <h2 className="section-title">Projects</h2>
+
+              <h2 className="section-title">
+                Projects
+              </h2>
             </div>
+
             <p className="section-desc">
-              A selection of backend systems, tools, and infrastructure projects built in production and open source.
+              A collection of backend systems, scalable APIs,
+              and full-stack applications focused on real-world engineering problems.
             </p>
           </div>
+
           <div className="projects-grid">
             {PROJECTS.map((p, i) => (
-              <ProjectCard key={p.title} project={p} index={i} />
+              <ProjectCard
+                key={p.title}
+                project={p}
+                index={i}
+              />
             ))}
           </div>
         </div>
       </section>
-            {/* DEVELOPER PRESENCE */}
+
+      {/* TECHNICAL HIGHLIGHTS */}
+      <section id="highlights" className="section">
+        <div className="section-inner">
+
+          <div className="section-header">
+            <div>
+              <p className="section-label">
+                <Server size={13} /> Technical Highlights
+              </p>
+
+              <h2 className="section-title">
+                Engineering Focus
+              </h2>
+            </div>
+
+            <p className="section-desc">
+              Focused on backend engineering, scalable architectures,
+              secure authentication systems, and production-ready APIs.
+            </p>
+          </div>
+
+          <div className="projects-grid">
+
+            <div className="project-card">
+              <div className="project-card-inner">
+                <h3 className="project-title">
+                  Authentication & Security
+                </h3>
+
+                <p className="project-desc">
+                  Built JWT authentication systems, refresh token flows,
+                  RBAC authorization, and secure API protection using
+                  Spring Security.
+                </p>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-card-inner">
+                <h3 className="project-title">
+                  REST API Development
+                </h3>
+
+                <p className="project-desc">
+                  Designed scalable REST APIs using Spring Boot with clean
+                  architecture, layered design, and efficient backend workflows.
+                </p>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-card-inner">
+                <h3 className="project-title">
+                  Database Engineering
+                </h3>
+
+                <p className="project-desc">
+                  Worked with MongoDB and MySQL including geo-indexing,
+                  optimized queries, schema design, and scalable data handling.
+                </p>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-card-inner">
+                <h3 className="project-title">
+                  Real-Time Systems
+                </h3>
+
+                <p className="project-desc">
+                  Built systems with live interaction updates, event tracking,
+                  and dynamic backend coordination for responsive applications.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* CODING PROFILES */}
       <section id="coding" className="section">
         <div className="section-inner">
+
           <div className="section-header">
             <div>
               <p className="section-label">
                 <Terminal size={13} /> Developer Presence
               </p>
-              <h2 className="section-title">Problem Solving & Profiles</h2>
+
+              <h2 className="section-title">
+                Problem Solving & Profiles
+              </h2>
             </div>
 
             <p className="section-desc">
-              Consistently improving problem-solving, backend fundamentals,
-              and data structures through hands-on coding practice and technical platforms.
+              Improving backend fundamentals, problem-solving,
+              and data structures through hands-on coding practice.
             </p>
           </div>
 
           <div className="projects-grid">
 
-            {/* LeetCode */}
             <div className="project-card">
               <div className="project-card-inner">
+
                 <div className="project-header">
                   <Tag label="Problem Solving" color="warm" />
 
@@ -353,24 +551,20 @@ Fresher, still learning
                   </a>
                 </div>
 
-                <h3 className="project-title">LeetCode</h3>
+                <h3 className="project-title">
+                  LeetCode
+                </h3>
 
                 <p className="project-desc">
                   Practicing DSA, backend-oriented interview questions,
-                  and writing optimized Java solutions for real-world coding patterns.
+                  and optimized Java problem solving.
                 </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
-                  <StackPill name="Java" />
-                  <StackPill name="DSA" />
-                  <StackPill name="Optimization" />
-                </div>
               </div>
             </div>
 
-            {/* Code360 */}
             <div className="project-card">
               <div className="project-card-inner">
+
                 <div className="project-header">
                   <Tag label="Learning" color="green" />
 
@@ -384,24 +578,20 @@ Fresher, still learning
                   </a>
                 </div>
 
-                <h3 className="project-title">Code360</h3>
+                <h3 className="project-title">
+                  Code360
+                </h3>
 
                 <p className="project-desc">
-                  Strengthening core computer science concepts through structured
-                  practice in algorithms, trees, graphs, and interview preparation.
+                  Strengthening algorithms, trees, graphs,
+                  and computer science fundamentals.
                 </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
-                  <StackPill name="Algorithms" />
-                  <StackPill name="Trees" />
-                  <StackPill name="Graphs" />
-                </div>
               </div>
             </div>
 
-            {/* GFG */}
             <div className="project-card">
               <div className="project-card-inner">
+
                 <div className="project-header">
                   <Tag label="Technical Growth" color="default" />
 
@@ -415,49 +605,14 @@ Fresher, still learning
                   </a>
                 </div>
 
-                <h3 className="project-title">GeeksforGeeks</h3>
+                <h3 className="project-title">
+                  GeeksforGeeks
+                </h3>
 
                 <p className="project-desc">
-                  Exploring system design concepts, Java backend fundamentals,
-                  and practicing data structure problems for stronger engineering foundations.
+                  Exploring backend concepts, Java fundamentals,
+                  and system design practices.
                 </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
-                  <StackPill name="Java" />
-                  <StackPill name="System Design" />
-                  <StackPill name="Backend" />
-                </div>
-              </div>
-            </div>
-
-            {/* Codolio */}
-            <div className="project-card">
-              <div className="project-card-inner">
-                <div className="project-header">
-                  <Tag label="Developer Profile" color="green" />
-
-                  <a
-                    href="https://codolio.com/profile/ewgblvq"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="icon-btn"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
-                </div>
-
-                <h3 className="project-title">Codolio</h3>
-
-                <p className="project-desc">
-                  Unified coding and development profile showcasing projects,
-                  technical activity, and continuous learning across platforms.
-                </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
-                  <StackPill name="Projects" />
-                  <StackPill name="Coding Profiles" />
-                  <StackPill name="Growth" />
-                </div>
               </div>
             </div>
 
@@ -468,20 +623,40 @@ Fresher, still learning
       {/* CONTACT */}
       <section id="contact" className="section contact-section">
         <div className="section-inner contact-inner">
+
           <p className="section-label">
             <Server size={13} /> Let's Connect
           </p>
-          <h2 className="contact-title">Open to new roles &amp; collaborations</h2>
+
+          <h2 className="contact-title">
+            Let’s build reliable backend systems together.
+          </h2>
+
           <p className="contact-sub">
-            Whether you're building something ambitious or looking for a backend engineer who cares about craft — I'd love to hear from you.
+            Interested in backend engineering, scalable applications,
+            APIs, or collaborative projects? Feel free to reach out.
           </p>
+
           <div className="contact-links">
-            <a href="mailto:hnps.bindra@gmail.com" className="contact-link">
-              hnps.bindra@gmail.com<ArrowUpRight size={14} />
+
+            <a
+              href="mailto:hnps.bindra@gmail.com"
+              className="contact-link"
+            >
+              hnps.bindra@gmail.com
+              <ArrowUpRight size={14} />
             </a>
-            <a href="https://github.com/hnpsbindra-singh" className="contact-link" target="_blank" rel="noreferrer">
-              <GitBranch size={14} /> github.com/hnps-Bindra
+
+            <a
+              href="https://github.com/hnpsbindra-singh"
+              className="contact-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitBranch size={14} />
+              github.com/hnpsbindra-singh
             </a>
+
           </div>
         </div>
       </section>
@@ -489,12 +664,27 @@ Fresher, still learning
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-inner">
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-muted)" }}>
-            Made By Harnimarpreet Singh
+
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--text-muted)",
+            }}
+          >
+            © 2026 Harnimarpreet Singh
           </span>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--border)" }}>
-            Built with React + Vite
+
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--border)",
+            }}
+          >
+            Built with React & Vite
           </span>
+
         </div>
       </footer>
     </div>
