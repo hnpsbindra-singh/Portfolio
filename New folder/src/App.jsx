@@ -648,6 +648,15 @@ Building & shipping projects daily
             </a>
 
             <a
+                href="/Resume_Harnimar(102316032).pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary"
+              >
+                Resume
+              </a>
+
+            <a
               href="https://github.com/hnpsbindra-singh"
               className="contact-link"
               target="_blank"
