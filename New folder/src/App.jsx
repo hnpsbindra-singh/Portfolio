@@ -124,7 +124,7 @@ const PROJECTS = [
     metricLabel: "progress analytics",
   },
   {
-    title: "Flood Resuce System",
+    title: "AI based Flood Resuce System",
     tag: "Rescue Platform",
     tagColor: "warm",
 
@@ -139,6 +139,8 @@ const PROJECTS = [
     ],
 
     github: "https://github.com/hnpsbindra-singh/FloodRescueSystem",
+    metric: "Capstone",
+    metricLabel: "project",
 
    
   },
