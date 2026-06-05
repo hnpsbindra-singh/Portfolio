@@ -123,6 +123,25 @@ const PROJECTS = [
     metric: "Daily",
     metricLabel: "progress analytics",
   },
+  {
+    title: "Flood Resuce System",
+    tag: "Rescue Platform",
+    tagColor: "warm",
+
+    description:
+      "In Progress and Not completed yet",
+
+    stack: [
+      "Spring Boot",
+      "React",
+      "MySQL",
+      "JWT",
+    ],
+
+    github: "https://github.com/hnpsbindra-singh/FloodRescueSystem",
+
+   
+  },
 ];
 
 const TAG_COLORS = {
