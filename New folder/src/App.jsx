@@ -124,6 +124,28 @@ const PROJECTS = [
     metricLabel: "progress analytics",
   },
   {
+  title: "Family Tracker",
+  tag: "Real-Time Safety",
+  tagColor: "cool",
+
+  description:
+    "Family location tracking platform enabling real-time location sharing, secure family group management, live WebSocket updates, and emergency communication between family members.",
+
+  stack: [
+    "Spring Boot",
+    "MongoDB",
+    "Spring Security",
+    "JWT",
+    "WebSockets",
+    "JavaMailSender",
+  ],
+
+  github: "https://github.com/hnpsbindra-singh/FamilyTrace",
+
+  metric: "Live",
+  metricLabel: "location tracking",
+},
+  {
     title: "AI based Flood Resuce System",
     tag: "Rescue Platform",
     tagColor: "warm",
