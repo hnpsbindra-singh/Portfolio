@@ -734,7 +734,7 @@ Building & shipping projects daily
               color: "var(--border)",
             }}
           >
-            Built with React & Vite
+            
           </span>
 
         </div>
