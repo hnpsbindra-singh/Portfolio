@@ -683,8 +683,8 @@ Building & shipping projects daily
                 </h3>
 
                 <p className="project-desc">
-                  Exploring backend concepts, Java fundamentals,
-                  and system design practices.
+                 Exploring Data Structures and Algorithms 
+                 College Rank: 500 | Coding Score: 696
                 </p>
               </div>
             </div>
