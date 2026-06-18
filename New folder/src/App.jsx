@@ -578,6 +578,36 @@ Building & shipping projects daily
 
           <div className="projects-grid">
 
+          {/* Codolio */}
+            <div className="project-card">
+              <div className="project-card-inner">
+                <div className="project-header">
+                  <Tag label="Developer Profile" color="green" />
+
+                  <a
+                    href="https://codolio.com/profile/ewgblvq"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-btn"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+
+                <h3 className="project-title">Codolio</h3>
+
+                <p className="project-desc">
+                  Unified coding and development profile showcasing projects,
+                  technical activity, and continuous learning across platforms.
+                </p>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
+                  <StackPill name="Projects" />
+                  <StackPill name="Coding Profiles" />
+                  <StackPill name="Growth" />
+                </div>
+              </div>
+            </div>
             <div className="project-card">
               <div className="project-card-inner">
 
