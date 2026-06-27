@@ -33,6 +33,7 @@ const PROJECTS = [
     ],
 
     github: "https://github.com/hnpsbindra-singh/ThaparOnWheelz",
+    deployed: "https://thaparonwheels.vercel.app/", // TODO: replace with your actual live URL
 
     metric: "Real-time",
     metricLabel: "ride coordination",
@@ -268,6 +269,17 @@ function ProjectCard({ project, index }) {
           </div>
 
           <div style={{ display: "flex", gap: "8px" }}>
+            {project.deployed && (
+              <a
+                href={project.deployed}
+                className="icon-btn"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Live Demo"
+              >
+                <ExternalLink size={15} />
+              </a>
+            )}
             {project.github && (
               <a
                 href={project.github}
