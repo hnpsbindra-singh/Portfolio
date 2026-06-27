@@ -40,6 +40,29 @@ const PROJECTS = [
   },
 
   {
+  title: "Skills Swap",
+  tag: "Skill Barter",
+  tagColor: "cool",
+
+  description:
+    "Peer-to-peer skill exchange platform where users trade knowledge instead of money — teach what you know, learn what you don't, matched through a barter-based skill marketplace.",
+
+  stack: [
+    "Spring Boot",
+    "React",
+    "MongoDB",
+    "JWT",
+    "Tailwind CSS",
+  ],
+
+  github: "https://github.com/hnpsbindra-singh/SkillsSwap",
+  deployed: "https://skills-swap-wheat.vercel.app/auth",
+
+  metric: "Barter",
+  metricLabel: "skill exchange",
+},
+
+  {
     title: "FestTrack",
     tag: "Campus Events",
     tagColor: "warm",
