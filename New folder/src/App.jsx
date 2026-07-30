@@ -8,187 +8,299 @@ import {
   ArrowUpRight,
   Menu,
   X,
+  FileText,
+  Award,
+  GraduationCap,
+  Code2,
+  Check,
+  Copy,
+  Layers,
+  BookOpen,
 } from "lucide-react";
 
 import "./index.css";
 import "./App.css";
 
-const NAV_LINKS = ["Projects", "Coding", "Contact"];
+function LinkedinIcon({ size = 16 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+const NAV_LINKS = [
+  "Projects",
+  "Skills",
+  "Education",
+  "Certifications",
+  "Coding",
+  "Contact",
+];
 
 const PROJECTS = [
   {
-    title: "Thapar On Wheels",
-    tag: "Campus Transport",
-    tagColor: "green",
-
+    title: "Cloud Share",
+    tag: "Cloud Storage",
+    tagColor: "cool",
     description:
-      "Campus ride-sharing platform for Thapar students featuring trip scheduling, route coordination, live seat availability, and secure student authentication.",
-
-    stack: [
-      "Spring Boot",
-      "React",
-      "MongoDB",
-      "JWT",
-      "Tailwind CSS",
-    ],
-
-    github: "https://github.com/hnpsbindra-singh/ThaparOnWheelz",
-    deployed: "https://thaparonwheels.vercel.app/", // TODO: replace with your actual live URL
-
-    metric: "Real-time",
-    metricLabel: "ride coordination",
-  },
-
-  {
-  title: "Skills Swap",
-  tag: "Skill Barter",
-  tagColor: "cool",
-
-  description:
-    "Peer-to-peer skill exchange platform where users trade knowledge instead of money — teach what you know, learn what you don't, matched through a barter-based skill marketplace.",
-
-  stack: [
-    "Spring Boot",
-    "React",
-    "MongoDB",
-    "JWT",
-    "Tailwind CSS",
-  ],
-
-  github: "https://github.com/hnpsbindra-singh/SkillsSwap",
-  deployed: "https://skills-swap-wheat.vercel.app/auth",
-
-  metric: "Barter",
-  metricLabel: "skill exchange",
-},
-
-  {
-    title: "FestTrack",
-    tag: "Campus Events",
-    tagColor: "warm",
-
-    description:
-      "College event management platform handling registrations, schedules, announcements, participation tracking, and centralized event coordination.",
-
-    stack: [
-      "Spring Boot",
-      "React",
-      "MongoDB",
-      "Tailwind CSS",
-      "REST APIs",
-    ],
-
-    github: "https://github.com/hnpsbindra-singh/FestTrek",
-
-    metric: "Live",
-    metricLabel: "event tracking",
-  },
-
-  {
-    title: "CommUnity",
-    tag: "Social Platform",
-    tagColor: "default",
-
-    description:
-      "Full-stack community discussion platform with authentication, threaded comments, likes, JWT sessions, and responsive real-time interactions.",
-
-    stack: [
-      "Spring Boot",
-      "React",
-      "MongoDB",
-      "JWT",
-      "Tailwind CSS",
-    ],
-
-    github: "https://github.com/hnpsbindra-singh/CommUnity",
-
-    metric: "JWT",
-    metricLabel: "authentication",
-  },
-
-  {
-    title: "Auth Service",
-    tag: "Security",
-    tagColor: "warm",
-
-    description:
-      "Reusable authentication microservice implementing JWT authentication, refresh tokens, RBAC authorization, secure password hashing, and API-level security.",
-
+      "Full-stack cloud storage platform for secure file upload, folder organization, search, and sharing with Redis caching, JWT-based authentication, and RESTful APIs documented via Swagger.",
     stack: [
       "Spring Boot",
       "Spring Security",
+      "PostgreSQL",
+      "Redis",
+      "Cloudinary",
+      "React.js",
       "JWT",
-      "MongoDB",
+      "Swagger",
     ],
-
+    github: "https://github.com/hnpsbindra-singh/FestTrackerSystem",
+    deployed: "https://fest-tracker-system.vercel.app/auth",
+    swagger: "https://festtrackersystem.onrender.com/swagger-ui/index.html#/",
+    metric: "Cloud",
+    metricLabel: "file sharing",
+    category: "Backend & Cloud",
+  },
+  {
+    title: "BookMyEvent",
+    tag: "Event Booking",
+    tagColor: "warm",
+    description:
+      "Full-stack event management and ticket booking platform featuring organizer event management, user ticket booking workflows, role-based access control, payment verification, and Redis caching.",
+    stack: [
+      "Spring Boot",
+      "Spring Security",
+      "PostgreSQL",
+      "Redis",
+      "Spring Data JPA",
+      "React.js",
+      "JWT",
+    ],
+    github: "https://github.com/hnpsbindra-singh/CabOnCampus_Final",
+    deployed: "https://cab-on-campus-final.vercel.app/login",
+    swagger: "https://caboncampus-final.onrender.com/swagger-ui/index.html#/",
+    metric: "Ticket",
+    metricLabel: "booking lifecycle",
+    category: "Full Stack",
+  },
+  {
+    title: "Cab On Campus",
+    tag: "Campus Transit",
+    tagColor: "green",
+    description:
+      "Full-stack campus cab booking platform for students and drivers within Thapar University. Features DTO-driven API design, role-based authorization, centralized exception handling, and optimized query performance.",
+    stack: [
+      "Spring Boot",
+      "Spring Security",
+      "PostgreSQL",
+      "Redis",
+      "Spring Data JPA",
+      "React.js",
+      "JWT",
+    ],
+    github: "https://github.com/hnpsbindra-singh/CabOnCampus_Final",
+    deployed: "https://cab-on-campus-final.vercel.app/login",
+    swagger: "https://caboncampus-final.onrender.com/swagger-ui/index.html#/",
+    metric: "~120 MS",
+    metricLabel: "API response latency",
+    category: "Real-Time",
+  },
+  {
+    title: "Skills Swap",
+    tag: "Skill Barter",
+    tagColor: "cool",
+    description:
+      "Peer-to-peer skill exchange platform enabling users to trade knowledge through a barter marketplace with real-time WebSocket messaging, admin controls, profile verification, and Swagger API docs.",
+    stack: [
+      "Spring Boot",
+      "Spring Security",
+      "WebSocket API",
+      "MongoDB",
+      "React.js",
+      "JWT",
+      "Swagger",
+    ],
+    github: "https://github.com/hnpsbindra-singh/SkillsSwap",
+    deployed: "https://skills-swap-wheat.vercel.app/",
+    swagger: "https://skillsbarter-backend.onrender.com/swagger-ui/index.html#/",
+    metric: "Barter",
+    metricLabel: "skill exchange",
+    category: "Real-Time",
+  },
+  {
+    title: "Family Tracker",
+    tag: "Real-Time Safety",
+    tagColor: "cool",
+    description:
+      "Family location tracking platform enabling real-time location sharing, secure family group management, live WebSocket updates, JavaMailSender, and emergency communication between family members.",
+    stack: [
+      "Spring Boot",
+      "MongoDB",
+      "Spring Security",
+      "JWT",
+      "WebSockets",
+      "JavaMailSender",
+    ],
+    github: "https://github.com/hnpsbindra-singh/FamilyTrace",
+    metric: "Live",
+    metricLabel: "location tracking",
+    category: "Real-Time",
+  },
+  {
+    title: "Auth Service Microservice",
+    tag: "Security",
+    tagColor: "warm",
+    description:
+      "Reusable authentication microservice implementing JWT authentication, refresh tokens, RBAC authorization, secure password hashing, and API-level security.",
+    stack: ["Spring Boot", "Spring Security", "JWT", "MongoDB"],
     github: "https://github.com/hnpsbindra-singh/AuthApp",
-
     metric: "RBAC",
     metricLabel: "authorization",
-  },
-
-  {
-    title: "MYFitness",
-    tag: "Fitness Platform",
-    tagColor: "warm",
-
-    description:
-      "Fitness tracking platform for workout management, calorie tracking, macro monitoring, and daily progress analytics with secure user authentication.",
-
-    stack: [
-      "Spring Boot",
-      "React",
-      "MySQL",
-      "JWT",
-    ],
-
-    github: "https://github.com/hnpsbindra-singh/MyFitnessArena",
-
-    metric: "Daily",
-    metricLabel: "progress analytics",
+    category: "Backend & Cloud",
   },
   {
-  title: "Family Tracker",
-  tag: "Real-Time Safety",
-  tagColor: "cool",
-
-  description:
-    "Family location tracking platform enabling real-time location sharing, secure family group management, live WebSocket updates, and emergency communication between family members.",
-
-  stack: [
-    "Spring Boot",
-    "MongoDB",
-    "Spring Security",
-    "JWT",
-    "WebSockets",
-    "JavaMailSender",
-  ],
-
-  github: "https://github.com/hnpsbindra-singh/FamilyTrace",
-
-  metric: "Live",
-  metricLabel: "location tracking",
-},
-  {
-    title: "AI based Flood Resuce System",
+    title: "AI Flood Rescue System",
     tag: "Rescue Platform",
     tagColor: "warm",
-
     description:
-      "In Progress and Not completed yet",
-
-    stack: [
-      "Spring Boot",
-      "React",
-      "MySQL",
-      "JWT",
-    ],
-
+      "AI-powered disaster management and emergency response coordination platform integrating real-time telemetry and resource allocation [Capstone • Under Active Development].",
+    stack: ["Spring Boot", "React", "MySQL", "JWT"],
     github: "https://github.com/hnpsbindra-singh/FloodRescueSystem",
     metric: "Capstone",
-    metricLabel: "project",
+    metricLabel: "under active dev",
+    category: "Backend & Cloud",
+  },
+];
 
-   
+const SKILL_CATEGORIES = [
+  {
+    category: "Programming Languages",
+    icon: Code2,
+    skills: ["Java (JDK 17/21)", "SQL", "C++", "JavaScript (ES6+)"],
+  },
+  {
+    category: "Backend & Frameworks",
+    icon: Server,
+    skills: [
+      "Spring Boot",
+      "Spring Framework",
+      "Spring Data JPA",
+      "Spring Security",
+      "JWT Auth",
+      "Hibernate",
+      "WebSocket API",
+      "RESTful APIs",
+    ],
+  },
+  {
+    category: "Databases & Storage",
+    icon: Database,
+    skills: [
+      "PostgreSQL",
+      "Redis Caching",
+      "MySQL",
+      "MongoDB",
+      "Cloudinary Storage",
+    ],
+  },
+  {
+    category: "Frontend & UI",
+    icon: Layers,
+    skills: [
+      "React.js",
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
+  },
+  {
+    category: "Tools & Ecosystem",
+    icon: Terminal,
+    skills: [
+      "VS Code",
+      "IntelliJ IDEA",
+      "Eclipse",
+      "Git & GitHub",
+      "Maven",
+      "Postman",
+      "Swagger UI",
+    ],
+  },
+];
+
+const EDUCATION = [
+  {
+    institution: "Thapar Institute of Engineering & Technology, Patiala",
+    degree: "Bachelor of Engineering – Computer Science & Engineering",
+    duration: "August 2023 – May 2027",
+    cgpa: "CGPA: 7.53",
+    courses: [
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Computer Architecture",
+      "Computer Networks",
+      "Object Oriented Programming",
+      "Software Engineering",
+      "Machine Learning",
+      "Database Management Systems",
+      "Data Engineering",
+      "Computer Programming",
+    ],
+  },
+  {
+    institution: "Central Board of Secondary Education (CBSE)",
+    degree: "Senior Secondary (12th Grade)",
+    duration: "April 2021 – March 2023",
+    cgpa: "Percentage: 88.6%",
+    courses: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
+  },
+  {
+    institution: "Central Board of Secondary Education (CBSE)",
+    degree: "Secondary (10th Grade)",
+    duration: "April 2020 – March 2021",
+    cgpa: "Percentage: 91.4%",
+    courses: ["Mathematics", "Science", "English", "Social Sciences"],
+  },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: "Spring Boot & Spring Framework",
+    issuer: "Udemy",
+    link: "https://www.udemy.com/certificate/UC-8c7c5461-5ef4-4e60-b5e6-42bcdac5bcbc/",
+    tag: "Spring Framework",
+  },
+  {
+    title: "JDBC Servlets and JSP - Java Web Development Fundamentals",
+    issuer: "Udemy",
+    link: "https://www.udemy.com/certificate/UC-786bbcbf-9f72-4422-aab6-fc96dd400598/",
+    tag: "Java Web Dev",
+  },
+  {
+    title: "Java (Basics) & SQL (Basics)",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/iframe/ff80ceb79780",
+    tag: "Java & SQL",
+  },
+  {
+    title: "Top 3% Ranking at Thapar University (14,500+ Coders)",
+    issuer: "GeeksforGeeks",
+    link: "https://www.geeksforgeeks.org/profile/nimar2q7c?tab=activity",
+    tag: "Top 3% Coders",
   },
 ];
 
@@ -198,13 +310,16 @@ const TAG_COLORS = {
     color: "#2d6a4f",
     border: "#b7ddc8",
   },
-
   warm: {
     bg: "#fdf0e3",
     color: "#c47c3e",
     border: "#f0d0a8",
   },
-
+  cool: {
+    bg: "rgba(0, 242, 254, 0.1)",
+    color: "#00f2fe",
+    border: "rgba(0, 242, 254, 0.3)",
+  },
   default: {
     bg: "#eeecea",
     color: "#4a4845",
@@ -261,7 +376,6 @@ function ProjectCard({ project, index }) {
       style={{ animationDelay: `${index * 0.07}s` }}
     >
       <div className="project-card-inner">
-
         <div className="project-header">
           <div
             style={{
@@ -285,13 +399,23 @@ function ProjectCard({ project, index }) {
               }}
             >
               {project.metric}{" "}
-              <span style={{ opacity: 0.6 }}>
-                {project.metricLabel}
-              </span>
+              <span style={{ opacity: 0.6 }}>{project.metricLabel}</span>
             </span>
           </div>
 
           <div style={{ display: "flex", gap: "8px" }}>
+            {project.swagger && (
+              <a
+                href={project.swagger}
+                className="icon-btn icon-btn-swagger"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Swagger Documentation"
+                title="Swagger API Specs"
+              >
+                <FileText size={15} />
+              </a>
+            )}
             {project.deployed && (
               <a
                 href={project.deployed}
@@ -299,6 +423,7 @@ function ProjectCard({ project, index }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Live Demo"
+                title="Live Application"
               >
                 <ExternalLink size={15} />
               </a>
@@ -309,7 +434,8 @@ function ProjectCard({ project, index }) {
                 className="icon-btn"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="GitHub"
+                aria-label="GitHub Repository"
+                title="GitHub Source Code"
               >
                 <GitBranch size={15} />
               </a>
@@ -319,9 +445,7 @@ function ProjectCard({ project, index }) {
 
         <h3 className="project-title">{project.title}</h3>
 
-        <p className="project-desc">
-          {project.description}
-        </p>
+        <p className="project-desc">{project.description}</p>
 
         <div
           style={{
@@ -343,6 +467,8 @@ function ProjectCard({ project, index }) {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -350,19 +476,25 @@ export default function App() {
     };
 
     window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("hnps.bindra@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
     <div className="app">
-
       {/* NAVBAR */}
       <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
         <div className="nav-inner">
-
           <a href="#" className="nav-logo">
             <Terminal size={16} />
             <span>Harnimarpreet Singh</span>
@@ -370,14 +502,22 @@ export default function App() {
 
           <div className="nav-links">
             {NAV_LINKS.map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
-                className="nav-link"
-              >
+              <a key={l} href={`#${l.toLowerCase()}`} className="nav-link">
                 {l}
               </a>
             ))}
+
+            <a
+              href="https://www.linkedin.com/in/hnpsb/"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-link"
+              title="LinkedIn Profile"
+              style={{ display: "flex", alignItems: "center", gap: "4px" }}
+            >
+              <LinkedinIcon size={16} />
+              LinkedIn
+            </a>
 
             <a href="#contact" className="nav-cta">
               Hire Me
@@ -387,13 +527,14 @@ export default function App() {
           <button
             className="hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="mobile-menu">
+          <div className="mobile-menu active">
             {NAV_LINKS.map((l) => (
               <a
                 key={l}
@@ -404,7 +545,15 @@ export default function App() {
                 {l}
               </a>
             ))}
-
+            <a
+              href="https://www.linkedin.com/in/hnpsb/"
+              target="_blank"
+              rel="noreferrer"
+              className="mobile-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              LinkedIn Profile
+            </a>
             <a
               href="#contact"
               className="mobile-link mobile-cta"
@@ -419,7 +568,6 @@ export default function App() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
-
           <div className="hero-badge">
             <span className="status-dot" />
             Open to backend engineering opportunities
@@ -432,16 +580,25 @@ export default function App() {
           </h1>
 
           <p className="hero-sub">
-            Backend-focused developer passionate about building secure,
-            scalable, and production-ready applications using Java,
-            Spring Boot, MongoDB, React, and modern backend technologies.
-            I enjoy designing APIs, authentication systems, real-time features,
-            and solving engineering problems through clean architecture.
+            Backend-focused engineer passionate about building secure, scalable,
+            and production-ready applications using Java, Spring Boot, Spring Security,
+            PostgreSQL, Redis, MongoDB, and React. I specialize in designing RESTful APIs,
+            microservices, authentication systems, and real-time features.
           </p>
 
           <div className="hero-actions">
             <a href="#projects" className="btn-primary">
               View Projects <ArrowUpRight size={16} />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/hnpsb/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <LinkedinIcon size={16} /> LinkedIn
             </a>
 
             <a href="#contact" className="btn-secondary">
@@ -452,7 +609,6 @@ export default function App() {
 
         <div className="hero-graphic">
           <div className="terminal-window">
-
             <div className="terminal-bar">
               <span />
               <span />
@@ -460,19 +616,20 @@ export default function App() {
             </div>
 
             <pre className="terminal-code">{`$ role
-Backend Engineer
+Java Backend Developer
 
-$ current_focus
-Scalable backend systems
+$ university
+Thapar Institute of Engineering & Tech (B.E. CSE)
 
-$ stack
-Java · Spring Boot · MongoDB
-React · REST APIs · JWT
+$ core_stack
+Java · Spring Boot · PostgreSQL · Redis · MongoDB
+
+$ highlights
+Top 3% GFG Coders · 40+ Repos · Swagger APIs
 
 $ status
-Building & shipping projects daily
+Available for Backend Roles & Internships
 `}</pre>
-
           </div>
         </div>
       </section>
@@ -480,112 +637,204 @@ Building & shipping projects daily
       {/* PROJECTS */}
       <section id="projects" className="section">
         <div className="section-inner">
-
           <div className="section-header">
             <div>
               <p className="section-label">
                 <Database size={13} /> Selected Work
               </p>
 
-              <h2 className="section-title">
-                Projects
-              </h2>
+              <h2 className="section-title">Projects</h2>
             </div>
 
             <p className="section-desc">
-              A collection of backend systems, scalable APIs,
-              and full-stack applications focused on real-world engineering problems.
+              A collection of backend systems, cloud storage services, real-time applications,
+              and full-stack platforms focused on high performance and clean architecture.
             </p>
           </div>
 
+          {/* Category Filter Tabs */}
+          <div className="filter-container">
+            {["All", "Backend & Cloud", "Real-Time", "Full Stack"].map((cat) => (
+              <button
+                key={cat}
+                className={`filter-btn ${activeCategory === cat ? "active" : ""}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat} {cat === "All" ? `(${PROJECTS.length})` : ""}
+              </button>
+            ))}
+          </div>
+
           <div className="projects-grid">
-            {PROJECTS.map((p, i) => (
-              <ProjectCard
-                key={p.title}
-                project={p}
-                index={i}
-              />
+            {filteredProjects.map((p, i) => (
+              <ProjectCard key={p.title} project={p} index={i} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* TECHNICAL HIGHLIGHTS */}
-      <section id="highlights" className="section">
+      {/* SKILLS & TECH MATRIX */}
+      <section id="skills" className="section">
         <div className="section-inner">
-
           <div className="section-header">
             <div>
               <p className="section-label">
-                <Server size={13} /> Technical Highlights
+                <Server size={13} /> Technical Stack
               </p>
 
-              <h2 className="section-title">
-                Engineering Focus
-              </h2>
+              <h2 className="section-title">Skills & Architecture</h2>
             </div>
 
             <p className="section-desc">
-              Focused on backend engineering, scalable architectures,
-              secure authentication systems, and production-ready APIs.
+              Comprehensive breakdown of backend frameworks, database systems,
+              cloud tools, and programming languages from my resume.
+            </p>
+          </div>
+
+          <div className="tech-matrix-grid">
+            {SKILL_CATEGORIES.map((sc) => {
+              const IconComponent = sc.icon;
+              return (
+                <div key={sc.category} className="tech-card">
+                  <div className="tech-card-header">
+                    <div className="tech-icon-box">
+                      <IconComponent size={20} />
+                    </div>
+                    <h3 className="tech-card-title">{sc.category}</h3>
+                  </div>
+
+                  <div className="tech-pill-list">
+                    {sc.skills.map((skill) => (
+                      <span key={skill} className="tech-matrix-pill">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION */}
+      <section id="education" className="section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div>
+              <p className="section-label">
+                <GraduationCap size={13} /> Academic Background
+              </p>
+
+              <h2 className="section-title">Education</h2>
+            </div>
+
+            <p className="section-desc">
+              Academic foundation in Computer Science & Engineering, core CS fundamentals,
+              and software engineering principles.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            {EDUCATION.map((edu) => (
+              <div key={edu.degree} className="education-card">
+                <div className="education-meta">
+                  <div>
+                    <h3 className="education-degree">{edu.degree}</h3>
+                    <p className="education-institution">{edu.institution}</p>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <span className="cgpa-badge">{edu.cgpa}</span>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "12px",
+                        color: "var(--text-muted)",
+                        marginTop: "4px",
+                      }}
+                    >
+                      {edu.duration}
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: "12px" }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      color: "var(--text-muted)",
+                      marginBottom: "8px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Key Coursework / Subjects:
+                  </p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                    {edu.courses.map((c) => (
+                      <StackPill key={c} name={c} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS */}
+      <section id="certifications" className="section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div>
+              <p className="section-label">
+                <Award size={13} /> Verifiable Credentials
+              </p>
+
+              <h2 className="section-title">Certifications & Honors</h2>
+            </div>
+
+            <p className="section-desc">
+              Professional certifications and verified competitive programming achievements.
             </p>
           </div>
 
           <div className="projects-grid">
+            {CERTIFICATIONS.map((cert) => (
+              <div key={cert.title} className="cert-card">
+                <div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    <span className="cert-issuer">{cert.issuer}</span>
+                    <Tag label={cert.tag} color="green" />
+                  </div>
+                  <h3 className="cert-title">{cert.title}</h3>
+                </div>
 
-            <div className="project-card">
-              <div className="project-card-inner">
-                <h3 className="project-title">
-                  Authentication & Security
-                </h3>
-
-                <p className="project-desc">
-                  Built JWT authentication systems, refresh token flows,
-                  RBAC authorization, and secure API protection using
-                  Spring Security.
-                </p>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-secondary"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    fontSize: "13px",
+                    padding: "8px 14px",
+                    marginTop: "16px",
+                    width: "fit-content",
+                  }}
+                >
+                  Verify Certificate <ExternalLink size={13} />
+                </a>
               </div>
-            </div>
-
-            <div className="project-card">
-              <div className="project-card-inner">
-                <h3 className="project-title">
-                  REST API Development
-                </h3>
-
-                <p className="project-desc">
-                  Designed scalable REST APIs using Spring Boot with clean
-                  architecture, layered design, and efficient backend workflows.
-                </p>
-              </div>
-            </div>
-
-            <div className="project-card">
-              <div className="project-card-inner">
-                <h3 className="project-title">
-                  Database Engineering
-                </h3>
-
-                <p className="project-desc">
-                  Worked with MongoDB and MySQL including geo-indexing,
-                  optimized queries, schema design, and scalable data handling.
-                </p>
-              </div>
-            </div>
-
-            <div className="project-card">
-              <div className="project-card-inner">
-                <h3 className="project-title">
-                  Real-Time Systems
-                </h3>
-
-                <p className="project-desc">
-                  Built systems with live interaction updates, event tracking,
-                  and dynamic backend coordination for responsive applications.
-                </p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -593,61 +842,27 @@ Building & shipping projects daily
       {/* CODING PROFILES */}
       <section id="coding" className="section">
         <div className="section-inner">
-
           <div className="section-header">
             <div>
               <p className="section-label">
                 <Terminal size={13} /> Developer Presence
               </p>
 
-              <h2 className="section-title">
-                Problem Solving & Profiles
-              </h2>
+              <h2 className="section-title">Problem Solving & Profiles</h2>
             </div>
 
             <p className="section-desc">
-              Improving backend fundamentals, problem-solving,
-              and data structures through hands-on coding practice.
+              Demonstrated problem-solving capabilities, algorithm mastery,
+              and algorithmic rating across competitive platforms.
             </p>
           </div>
 
           <div className="projects-grid">
-
-          {/* Codolio */}
+            {/* LeetCode */}
             <div className="project-card">
               <div className="project-card-inner">
                 <div className="project-header">
-                  <Tag label="Developer Profile" color="green" />
-
-                  <a
-                    href="https://codolio.com/profile/ewgblvq"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="icon-btn"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
-                </div>
-
-                <h3 className="project-title">Codolio</h3>
-
-                <p className="project-desc">
-                  Unified coding and development profile showcasing projects,
-                  technical activity, and continuous learning across platforms.
-                </p>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
-                  <StackPill name="Projects" />
-                  <StackPill name="Coding Profiles" />
-                  <StackPill name="Growth" />
-                </div>
-              </div>
-            </div>
-            <div className="project-card">
-              <div className="project-card-inner">
-
-                <div className="project-header">
-                  <Tag label="Problem Solving" color="warm" />
+                  <Tag label="250+ Solved" color="warm" />
 
                   <a
                     href="https://leetcode.com/u/3E9LrlAgkf/"
@@ -659,49 +874,33 @@ Building & shipping projects daily
                   </a>
                 </div>
 
-                <h3 className="project-title">
-                  LeetCode
-                </h3>
+                <h3 className="project-title">LeetCode</h3>
 
                 <p className="project-desc">
-                  Practicing DSA, backend-oriented interview questions,
-                  and optimized Java problem solving.
+                  Practicing Data Structures, Algorithms, optimized Java solutions,
+                  and backend engineering interview questions (250+ problems solved).
                 </p>
-              </div>
-            </div>
 
-            <div className="project-card">
-              <div className="project-card-inner">
-
-                <div className="project-header">
-                  <Tag label="Learning" color="green" />
-
-                  <a
-                    href="https://www.naukri.com/code360/profile/HnpsBindra"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="icon-btn"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                    marginTop: "16px",
+                  }}
+                >
+                  <StackPill name="DSA" />
+                  <StackPill name="Java" />
+                  <StackPill name="Algorithms" />
                 </div>
-
-                <h3 className="project-title">
-                  Code360
-                </h3>
-
-                <p className="project-desc">
-                  Strengthening algorithms, trees, graphs,
-                  and computer science fundamentals.
-                </p>
               </div>
             </div>
 
+            {/* GeeksforGeeks */}
             <div className="project-card">
               <div className="project-card-inner">
-
                 <div className="project-header">
-                  <Tag label="Technical Growth" color="default" />
+                  <Tag label="Top 3% Thapar" color="green" />
 
                   <a
                     href="https://www.geeksforgeeks.org/profile/nimar2q7c?tab=activity"
@@ -713,17 +912,138 @@ Building & shipping projects daily
                   </a>
                 </div>
 
-                <h3 className="project-title">
-                  GeeksforGeeks
-                </h3>
+                <h3 className="project-title">GeeksforGeeks</h3>
 
                 <p className="project-desc">
-                 Exploring Data Structures and Algorithms 
-                 College Rank: 500 | Coding Score: 696
+                  Ranked in the top 3% among 14,500+ students at Thapar University with 900+ coding score and 250+ problems solved.
                 </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                    marginTop: "16px",
+                  }}
+                >
+                  <StackPill name="900+ Score" />
+                  <StackPill name="Ranked Top 3%" />
+                </div>
               </div>
             </div>
 
+            {/* Code360 */}
+            <div className="project-card">
+              <div className="project-card-inner">
+                <div className="project-header">
+                  <Tag label="200+ Solved" color="cool" />
+
+                  <a
+                    href="https://www.naukri.com/code360/profile/HnpsBindra"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-btn"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+
+                <h3 className="project-title">Coding Ninjas (Code360)</h3>
+
+                <p className="project-desc">
+                  Strengthening computer science fundamentals, trees, dynamic programming,
+                  and graph algorithms (200+ problems solved).
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                    marginTop: "16px",
+                  }}
+                >
+                  <StackPill name="Code360" />
+                  <StackPill name="Graphs" />
+                  <StackPill name="DP" />
+                </div>
+              </div>
+            </div>
+
+            {/* Codolio */}
+            <div className="project-card">
+              <div className="project-card-inner">
+                <div className="project-header">
+                  <Tag label="Unified Profile" color="default" />
+
+                  <a
+                    href="https://codolio.com/profile/ewgblvq"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-btn"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+
+                <h3 className="project-title">Codolio Profile</h3>
+
+                <p className="project-desc">
+                  Unified developer profile aggregating coding metrics, project activity,
+                  and continuous growth tracking across platforms.
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                    marginTop: "16px",
+                  }}
+                >
+                  <StackPill name="Portfolio" />
+                  <StackPill name="Activity" />
+                </div>
+              </div>
+            </div>
+
+            {/* NeetCode */}
+            <div className="project-card">
+              <div className="project-card-inner">
+                <div className="project-header">
+                  <Tag label="DSA Patterns" color="warm" />
+
+                  <a
+                    href="https://neetcode.io/user/RapidAndorian514"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-btn"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+
+                <h3 className="project-title">NeetCode</h3>
+
+                <p className="project-desc">
+                  Practicing Data Structures, Algorithms, NeetCode DSA roadmap,
+                  and technical interview problem-solving patterns.
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                    marginTop: "16px",
+                  }}
+                >
+                  <StackPill name="NeetCode 150" />
+                  <StackPill name="DSA Roadmap" />
+                  <StackPill name="Patterns" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -731,7 +1051,6 @@ Building & shipping projects daily
       {/* CONTACT */}
       <section id="contact" className="section contact-section">
         <div className="section-inner contact-inner">
-
           <p className="section-label">
             <Server size={13} /> Let's Connect
           </p>
@@ -741,28 +1060,30 @@ Building & shipping projects daily
           </h2>
 
           <p className="contact-sub">
-            Interested in backend engineering, scalable applications,
-            APIs, or collaborative projects? Feel free to reach out.
+            Interested in backend engineering, Java & Spring Boot applications,
+            REST APIs, or collaborative projects? Feel free to reach out.
           </p>
 
           <div className="contact-links">
-
-            <a
-              href="mailto:hnps.bindra@gmail.com"
-              className="contact-link"
-            >
+            <a href="mailto:hnps.bindra@gmail.com" className="contact-link">
               hnps.bindra@gmail.com
               <ArrowUpRight size={14} />
             </a>
 
+            <button onClick={handleCopyEmail} className="btn-secondary">
+              {copied ? <Check size={14} /> : <Copy size={14} />}{" "}
+              {copied ? "Copied Email!" : "Copy Email"}
+            </button>
+
             <a
-                href="/Resume_Harnimar(102316032).pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-secondary"
-              >
-                Resume
-              </a>
+              href="https://www.linkedin.com/in/hnpsb/"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-link"
+            >
+              <LinkedinIcon size={14} />
+              linkedin.com/in/hnpsb
+            </a>
 
             <a
               href="https://github.com/hnpsbindra-singh"
@@ -774,6 +1095,14 @@ Building & shipping projects daily
               github.com/hnpsbindra-singh
             </a>
 
+            <a
+              href="/Resume_Harnimar(102316032).pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary"
+            >
+              Resume PDF
+            </a>
           </div>
         </div>
       </section>
@@ -781,7 +1110,6 @@ Building & shipping projects daily
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-inner">
-
           <span
             style={{
               fontFamily: "var(--font-mono)",
@@ -789,21 +1117,17 @@ Building & shipping projects daily
               color: "var(--text-muted)",
             }}
           >
-            © 2026 Harnimarpreet Singh
+            © 2026 Harnimarpreet Singh • Java Backend Developer
           </span>
-
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "12px",
-              color: "var(--border)",
-            }}
-          >
-            
-          </span>
-
         </div>
       </footer>
+
+      {copied && (
+        <div className="toast-notice">
+          <Check size={16} style={{ color: "var(--accent-green)" }} />
+          Email copied to clipboard (hnps.bindra@gmail.com)
+        </div>
+      )}
     </div>
   );
 }

@@ -284,7 +284,6 @@
 }
 
 .terminal-window:hover {
-  transform: scale(1.02);
   border-color: rgba(139, 92, 246, 0.3);
 }
 
@@ -384,18 +383,6 @@
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   overflow: hidden;
-  transition:
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 75, 145, 0.3);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.00));
 }
 
 .project-card-inner {
@@ -433,17 +420,13 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--text);
   cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    background-color 0.25s ease,
-    border-color 0.25s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background: var(--accent-2);
-  border-color: var(--accent-2);
+  background: var(--accent);
+  border-color: var(--accent);
   color: white;
-  transform: rotate(-8deg) scale(1.1);
 }
 
 /* ──────────────────────────────────────────────────────────
@@ -493,14 +476,10 @@
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.02);
   font-weight: 500;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .contact-link:hover {
-  transform: translateY(-2px);
   background: rgba(139, 92, 246, 0.08);
   border-color: rgba(139, 92, 246, 0.3);
 }
@@ -624,3 +603,205 @@
     padding: 24px 28px;
   }
 }
+
+/* ──────────────────────────────────────────────────────────
+   SWAGGER & EXTRA ACTION BUTTONS
+────────────────────────────────────────────────────────── */
+.icon-btn-swagger {
+  color: #8b5cf6 !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+.icon-btn-swagger:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: #8b5cf6 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* ──────────────────────────────────────────────────────────
+   PROJECT FILTER TABS
+────────────────────────────────────────────────────────── */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(255, 75, 145, 0.2));
+  border-color: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ──────────────────────────────────────────────────────────
+   TECH MATRIX & EDUCATION / CERTIFICATIONS GRIDS
+────────────────────────────────────────────────────────── */
+.tech-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.tech-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tech-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tech-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.tech-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tech-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-matrix-pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* EDUCATION CARDS */
+.education-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.education-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.education-degree {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.education-institution {
+  font-size: 15px;
+  color: var(--accent-2);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.cgpa-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  font-weight: 600;
+}
+
+/* CERTIFICATION CARDS */
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-warm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* COPY EMAIL TOAST */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  animation: fadeUp 0.3s ease;
+}
+
