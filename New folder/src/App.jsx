@@ -291,10 +291,16 @@ const CERTIFICATIONS = [
     tag: "Java Web Dev",
   },
   {
-    title: "Java (Basics) & SQL (Basics)",
+    title: "Java (Basics)",
     issuer: "HackerRank",
     link: "https://www.hackerrank.com/certificates/iframe/ff80ceb79780",
-    tag: "Java & SQL",
+    tag: "Java",
+  },
+  {
+    title: "SQL (Basics)",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/iframe/87f9d277f7e4",
+    tag: "SQL",
   },
   {
     title: "Top 3% Ranking at Thapar University (14,500+ Coders)",
@@ -302,6 +308,7 @@ const CERTIFICATIONS = [
     link: "https://www.geeksforgeeks.org/profile/nimar2q7c?tab=activity",
     tag: "Top 3% Coders",
   },
+   
 ];
 
 const TAG_COLORS = {
