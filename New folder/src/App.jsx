@@ -838,7 +838,7 @@ Available for Backend Roles & Internships
                     width: "fit-content",
                   }}
                 >
-                  Verify Certificate <ExternalLink size={13} />
+                  Verify Certificate/Profile <ExternalLink size={13} />
                 </a>
               </div>
             ))}
