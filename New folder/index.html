@@ -20,13 +20,19 @@
 
     <meta name="author" content="Harnimarpreet Singh" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+
+    <!-- PWA Capabilities & Icons -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0b10" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Harnimar" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Search Engine -->
     <meta name="robots" content="index, follow" />
-
-    <!-- Theme -->
-    <meta name="theme-color" content="#0a0b10" />
 
     <!-- Open Graph -->
     <meta
@@ -66,5 +72,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('PWA ServiceWorker registered:', reg.scope))
+            .catch(err => console.log('PWA ServiceWorker registration failed:', err));
+        });
+      }
+    </script>
   </body>
 </html>
