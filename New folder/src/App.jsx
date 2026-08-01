@@ -55,10 +55,11 @@ const PROJECTS = [
     tag: "Cloud Storage",
     tagColor: "cool",
     description:
-      "Full-stack cloud storage platform for secure file upload, folder organization, search, and sharing with Redis caching, JWT-based authentication, and RESTful APIs documented via Swagger.",
+      "Full-stack Microservices based cloud storage platform for secure file upload, folder organization, search, and sharing with Redis caching, JWT-based authentication, and RESTful APIs documented via Swagger.",
     stack: [
       "Spring Boot",
       "Spring Security",
+      "Microservices",
       "PostgreSQL",
       "Redis",
       "Cloudinary",
