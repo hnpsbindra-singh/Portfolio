@@ -368,6 +368,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [toastMessage, setToastMessage] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -439,15 +440,52 @@ export default function App() {
 
             <button
               onClick={copyEmail}
-              className="btn btn-secondary"
+              className="btn btn-secondary nav-copy-btn"
               style={{ padding: "6px 12px", fontSize: "12px" }}
               title="Copy email address"
             >
               <Copy size={13} />
-              <span>Copy Email</span>
+              <span className="copy-btn-text">Copy Email</span>
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="mobile-toggle-btn"
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="mobile-nav-drawer">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="mobile-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="mobile-nav-footer">
+              <a
+                href="/Resume_Harnimar(102316032).pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary"
+                style={{ width: "100%", justifyContent: "center" }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <FileText size={15} />
+                <span>View Resume</span>
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* HERO SECTION */}
@@ -962,14 +1000,7 @@ export default function App() {
             </div>
 
             {/* Certifications Row */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "16px",
-                marginTop: "8px",
-              }}
-            >
+            <div className="certs-grid">
               <div className="edu-card">
                 <div
                   style={{
@@ -1112,14 +1143,7 @@ export default function App() {
             </div>
 
             {/* Technical Highlights / Leadership */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "16px",
-                marginTop: "16px",
-              }}
-            >
+            <div className="highlights-grid">
               <div className="edu-card">
                 <div
                   style={{
