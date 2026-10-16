@@ -264,12 +264,12 @@ const ALL_PROJECTS = [
 const CODING_STATS = [
   {
     platform: "LeetCode",
-    badge: "350+ Solved",
+    badge: "400+ Solved",
     badgeType: "amber",
     headline: "1600+ Max Contest Rating",
     desc: "Consistent competitive problem solving in Java. Practicing advanced Data Structures, Dynamic Programming, Graphs, and Greedy Algorithms.",
     link: "https://leetcode.com/u/3E9LrlAgkf/",
-    pills: ["350+ Solved", "1600+ Peak Rating", "DSA in Java"],
+    pills: ["400+ Solved", "1600+ Peak Rating", "DSA in Java"],
   },
   {
     platform: "GeeksforGeeks",
@@ -507,7 +507,7 @@ export default function App() {
 
               <div className="hero-card-stats">
                 <div className="stat-box">
-                  <div className="stat-value">350+</div>
+                  <div className="stat-value">400+</div>
                   <div className="stat-label">LeetCode (1600+ Rating)</div>
                 </div>
                 <div className="stat-box">
@@ -592,7 +592,7 @@ export default function App() {
           {/* Quick Metrics Ribbon */}
           <div className="stats-ribbon">
             <div className="ribbon-item">
-              <div className="ribbon-number">350+ Solved</div>
+              <div className="ribbon-number">400+ Solved</div>
               <div className="ribbon-label">LeetCode · 1600+ Max Contest Rating</div>
             </div>
             <div className="ribbon-item">
